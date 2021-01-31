@@ -43,12 +43,11 @@ class App extends React.Component {
         <SideDrawer show={this.state.sideDrawerOpen} />
         {backdrop}
         <main className="container">
-          
             <Switch>
               <Route exact path="/clipboard" component={Clipboard}/>
               <Route exact path="/selfie" component={Selfie}/>
-              <Route exact path="/" component={Home}/>
               <Route exact path="/404" component={PageNotFound} />
+              <Route exact path="/" component={Home} />
               <Redirect to="/404" component={PageNotFound}/>
             </Switch>
           

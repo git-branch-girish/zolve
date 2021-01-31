@@ -15,30 +15,17 @@ const toolbar = props => (
             <div className="spacer" />
             <div className="toolbar_navigation-items">
                 <ul>
-                    <li>
-                        <NavLink
-                            to="/"
-                            
-                            >Home
-                        </NavLink>                    
-                    </li>
-                    <li>
-                        <NavLink
-                            to="/clipboard"
-                            
-                            >
-                            Clipboard
-                        </NavLink> 
-                        <a href="/clipboard"></a>
-                    </li>
-                    <li>
-                        <NavLink 
-                            to="/Selfie"
-                            
-                            >
-                            Selfie
-                        </NavLink>
-                    </li>
+                    <ul>
+                        <li>
+                            <a href="/">Home</a>
+                        </li>
+                        <li>
+                            <a href="/clipboard">Clipboard</a>
+                        </li>
+                        <li>
+                            <a href="/selfie">Selfie</a>
+                        </li>
+                    </ul>
                 </ul>
             </div>
         </nav>
@@ -46,3 +33,4 @@ const toolbar = props => (
 );
 
 export default toolbar;
+
