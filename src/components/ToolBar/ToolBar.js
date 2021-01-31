@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom'
 import SideMenu from "../SideMenu/SideMenu";
 import "./ToolBar.css";
 
@@ -15,13 +16,28 @@ const toolbar = props => (
             <div className="toolbar_navigation-items">
                 <ul>
                     <li>
-                        <a href="/">Home</a>
+                        <NavLink
+                            to="/"
+                            
+                            >Home
+                        </NavLink>                    
                     </li>
                     <li>
-                        <a href="/clipboard">Clipboard</a>
+                        <NavLink
+                            to="/clipboard"
+                            
+                            >
+                            Clipboard
+                        </NavLink> 
+                        <a href="/clipboard"></a>
                     </li>
                     <li>
-                        <a href="/selfie">Selfie</a>
+                        <NavLink 
+                            to="/Selfie"
+                            
+                            >
+                            Selfie
+                        </NavLink>
                     </li>
                 </ul>
             </div>

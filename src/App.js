@@ -38,11 +38,12 @@ class App extends React.Component {
     }
     return (
       <div style={{ height: "100%" }}>
+        <Router>
         <Toolbar drawerToggleClickHandler={this.drawerToggleClickHandler} />
         <SideDrawer show={this.state.sideDrawerOpen} />
         {backdrop}
         <main className="container">
-          <Router>
+          
             <Switch>
               <Route exact path="/clipboard" component={Clipboard}/>
               <Route exact path="/selfie" component={Selfie}/>
@@ -50,9 +51,11 @@ class App extends React.Component {
               <Route exact path="/404" component={PageNotFound} />
               <Redirect to="/404" component={PageNotFound}/>
             </Switch>
-          </Router>
+          
         </main>
+        </Router >
       </div>
+      
     );
   }
 }

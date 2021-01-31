@@ -43,14 +43,6 @@ class ImgDialog extends React.Component {
         open: false,
     }
 
-    // handleClickOpen = () => {
-    //     this.setState({ open: true })
-    // }
-
-    // handleClose = () => {
-    //     this.setState({ open: false });
-    // }
-
     render() {
         const { classes } = this.props
         return (
@@ -86,8 +78,8 @@ class ImgDialog extends React.Component {
                         color="primary"
                         classes={{ root: classes.cropButton }}
                     >
-                        CLose
-          </Button>
+                        Uploading The Image
+                    </Button>
                 </div>
             </Dialog>
         )

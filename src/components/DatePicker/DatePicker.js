@@ -6,10 +6,10 @@ import "antd/dist/antd.css";
 
 class DatePickerUI extends Component {
 
-    onChange = (date, dateString, abc) => {
-        console.log(date, dateString);
-        console.log(abc);
-    }
+    // onChange = (date, dateString, abc) => {
+    //     console.log(date, dateString);
+    //     console.log(abc);
+    // }
 
     render() {
         const { RangePicker } = DatePicker;
@@ -24,30 +24,9 @@ class DatePickerUI extends Component {
             ],
         };
 
-        
-        
-        const TimeRelatedForm = () => {
-            const onFinish = (fieldsValue) => {
-                // Should format date value before submit.
-                const rangeValue = fieldsValue['range-picker'];
-
-                const values = {
-                    ...fieldsValue,
-                    'date-picker': fieldsValue['date-picker'].format('YYYY-MM-DD'),
-
-                    'range-picker': [rangeValue[0].format('YYYY-MM-DD'), rangeValue[1].format('YYYY-MM-DD')],
-
-                };
-
-                //Getting input values
-                console.log('Received values of form: ', values);
-            };
-
-            return <Form.Item name="range-picker" label="Date Picker" {...rangeConfig}>
-                <RangePicker/>
-            </Form.Item>;
-        };
-        return <TimeRelatedForm />
+        return <Form.Item name="range-picker" label="Date Picker" {...rangeConfig}>
+            <RangePicker />
+        </Form.Item>;
 }
 
 }

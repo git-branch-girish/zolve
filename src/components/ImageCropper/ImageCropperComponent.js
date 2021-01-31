@@ -24,7 +24,7 @@ class ImageCropperComponent extends Component {
     }
 
     onCropComplete = (croppedArea, croppedAreaPixels) => {
-        console.log(croppedArea, croppedAreaPixels)
+        // console.log(croppedArea, croppedAreaPixels)
         this.setState({ croppedAreaPixels })
     }
 
@@ -37,19 +37,20 @@ class ImageCropperComponent extends Component {
             this.props.imageSrc,
             this.state.croppedAreaPixels
         )
-        console.log(croppedImage)
+        // console.log(croppedImage)
         this.setState({ croppedImage })
     }
 
     handleClose = () => {
         this.setState({ croppedImage: null });
         this.props.defaultView();
+        alert('Image Uploaded!');
     }
 
 
     render() {
         const { classes, imageSrc } = this.props
-        console.log(imageSrc, 'imageSrc:>>>>>>>>>>>>>>>');
+        // console.log(imageSrc, 'imageSrc:>>>>>>>>>>>>>>>');
 
         return (
             <div className="App">
