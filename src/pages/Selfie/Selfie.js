@@ -6,10 +6,14 @@ import ImageCropperComponent from '../../components/ImageCropper/ImageCropperCom
 
 import './Selfie.css';
 
+import permissionDenied from '../../images/no-camera-allowed-hi.png'
+
 class Selfie extends Component {
     state = {
         imageURL: '',
-        editImg: false
+        editImg: false,
+        cameraAccess: false,
+        permissionError: ''
     }
 
     videoEle = React.createRef();
@@ -29,7 +33,10 @@ class Selfie extends Component {
             this.videoEle.current.srcObject = stream;
 
         } catch (err) {
-            console.log(err);
+            this.setState({
+                cameraAccess: true,
+                permissionError: err
+            });
         }
     }
 
@@ -52,9 +59,6 @@ class Selfie extends Component {
         // Get an image dataURL from the canvas.
         const imageDataURL = this.canvasEle.current.toDataURL('image/png');
         this.stopCam();
-
-        console.log(imageDataURL, '>>>>>>>>>>>>>.');
-
         this.setState({
             imageURL: imageDataURL,
             editImg: true
@@ -87,8 +91,18 @@ class Selfie extends Component {
         })
     }
 
+    renderCameraPermission = () => {
+        return (
+            <div style={{textAlign: 'center', position: 'relative'}}>
+                <img style={{width:'40%'}}src={permissionDenied}/>
+                <p className="errMsg">Oooops!!!, Need Your Browser Camera permission for Further Access...!!!</p>
+            </div>
+        )
+    }
+
 
     render() {
+        if (this.state.cameraAccess) return this.renderCameraPermission();
         return (<div className="selfie">
             
             {this.state.imageURL === '' && <div className="cam">

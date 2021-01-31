@@ -32,6 +32,15 @@ const styles = {
         maxWidth: 'calc(100% - 40px)',
         maxHeight: 'calc(100% - 40px)',
     },
+
+    uploadBtn: {
+        position: 'absolute',
+        bottom: '0px',
+        width: '100%',
+        background: '#FF9800',
+        padding: '12px',
+        fontSize: '15px'
+    }
 }
 
 function Transition(props) {
@@ -77,8 +86,9 @@ class ImgDialog extends React.Component {
                         variant="contained"
                         color="primary"
                         classes={{ root: classes.cropButton }}
+                        className={classes.uploadBtn}
                     >
-                        Uploading The Image
+                        Upload the Image
                     </Button>
                 </div>
             </Dialog>
