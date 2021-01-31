@@ -29,6 +29,7 @@
     flex-direction: column;
     flex: 1;
     padding: 15px;
+    margin-top: 10vh;
 }
 
 .row {
@@ -43,6 +44,7 @@
     border: none;
     border-radius: 2px;
      margin:2px;
+     padding: 10px 20px;
 }
 
 .pasteFromClipBoard{
