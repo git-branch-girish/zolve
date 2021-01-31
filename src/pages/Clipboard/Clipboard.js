@@ -34,9 +34,10 @@ class Clipboard extends Component {
     }
 
     componentDidMount () {
-        var url_string = window && window.location && window.location.href;
-        var url = new URL(url_string);
-        var query = url.searchParams.get("q");
+        let url_string = window && window.location && window.location.href;
+        let url = new URL(url_string);
+        let query = url.searchParams.get("q");
+        navigator.clipboard.writeText(query);
         if (query){
             this.setState({
                 paramValue: query,

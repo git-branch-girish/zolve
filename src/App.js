@@ -44,10 +44,10 @@ class App extends React.Component {
         {backdrop}
         <main className="container">
             <Switch>
-              <Route exact path="/clipboard" component={Clipboard}/>
-              <Route exact path="/selfie" component={Selfie}/>
-              <Route exact path="/404" component={PageNotFound} />
               <Route exact path="/" component={Home} />
+              <Route path="/clipboard" component={Clipboard}/>
+              <Route path="/selfie" component={Selfie}/>
+              <Route path="/404" component={PageNotFound} />
               <Redirect to="/404" component={PageNotFound}/>
             </Switch>
           
