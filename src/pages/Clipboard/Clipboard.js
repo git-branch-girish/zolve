@@ -7,16 +7,22 @@ class Clipboard extends Component {
         this.state = {
             copySuccess: false,
             inputTextArea: '',
-            outputTextArea: '',
+            outputTextArea: null,
             paramValue: ''
         }
     }
 
     copyToClipboard = () => {
-        const el = this.textArea
-        el.select()
-        document.execCommand("copy")
-        this.setState({ copySuccess: true })
+        console.log(this.state.outTextArea, '>>>>>>>>>>')
+        if (this.state.outTextArea){
+            const el = this.textArea
+            el.select()
+            document.execCommand("copy")
+            this.setState({ copySuccess: true })
+        }else{
+            this.setState({ copySuccess: false });
+        }   
+        
     }
 
     onInputTextAreaChange = (event) => {
@@ -29,7 +35,11 @@ class Clipboard extends Component {
 
     pasteFromClipBoard = () => {
         navigator.clipboard.readText().then(text => {
-            return this.setState({ outputTextArea: text })
+            if (this.state.outputTextArea !== null) {
+                return this.setState({ outputTextArea: text })
+            }else{
+                return this.setState({ copySuccess: false })
+            }
         });
     }
 
@@ -70,16 +80,16 @@ class Clipboard extends Component {
     }
 
     renderMessege = () => {
-        return(
-            
-                <div style={{ "color": "green", textAlign: "center" }}>
-                    Success!
-                </div> 
-            
-        )
-    }
+        if (this.state.copySuccess){
 
-    
+            return(
+                    
+                    <div style={{ "color": "green", textAlign: "center" }}>
+                        Success!
+                    </div>        
+            )
+        }
+    }
 
     render() {
         
@@ -88,6 +98,7 @@ class Clipboard extends Component {
 
                 {this.state.paramValue && this.renderToken()}
                 {this.state.copySuccess && this.renderMessege()}
+                
             
                 <div className="row">
                     <textarea
@@ -107,7 +118,7 @@ class Clipboard extends Component {
                         Paste From Clipboard
                     </button>
                     <textarea
-                        value={this.state.outputTextArea}
+                        value={this.state.outputTextArea !== null ?  this.state.outputTextArea : '' }
                         onChange={this.onOutputTextAreaChange}
                         className="outputTextField"
                         placeholder="You can paste here!!!">

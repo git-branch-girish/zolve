@@ -66,6 +66,18 @@
   }
 }
 
-.activeStyle {
+.navbar__link{
+  padding:10px;
+  color:#fff;
+}
 
+.navbar__link{
+    color: #fff;
+    font-weight:600;
+}
+
+.navbar__link--active, .navbar__link:focus, .navbar__link:hover{
+  background: white;
+  color: #333!important;
+  border-radius: 2px;
 }
