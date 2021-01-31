@@ -1,0 +1,50 @@
+.formController {
+   display: flex;
+    padding: 0px;
+    flex-wrap: wrap;
+}
+
+.searchBtn {
+    display: block;
+    margin: 15px auto;
+    color: #fff;
+    background-color: #4285f4;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 2px;
+    font-size: 14px;
+}
+
+.formController label {
+      color: #333;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 0px;
+    display: block;
+    margin-top: 10px;
+    width: 100%;
+}
+
+ .formController .row {
+    flex: 1 1;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.formController .page, .formController .pageSize{
+    display: block;
+    flex: 1 1;
+    padding: 6px;
+    font-size: 14px;
+    margin: 0px;
+    border: 1px solid #ccc!important;
+    border-radius: 2px;
+
+    
+}
+
+.advanceSearchTitle {
+    text-align: center;
+    margin-top: 15px;
+}
