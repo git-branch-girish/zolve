@@ -5,11 +5,8 @@ import { Form, DatePicker,} from 'antd';
 import "antd/dist/antd.css";
 
 class DatePickerUI extends Component {
-
-   
-
     onRageDatePick = (date,dateString) => {
-        console.log(dateString, '>>>>>>>>>>>>>')
+        // console.log(dateString, '>>>>>>>>>>>>>')
         this.props.selectedDates(dateString);
     }
 

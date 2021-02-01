@@ -27,27 +27,33 @@ class Home extends Component {
         timeStr = timeStr.split("-");
         timeStr.reverse();
         var newDate = new Date(timeStr[2], timeStr[1] - 1, timeStr[0]);
-        console.log(newDate.getTime());
+        console.log(newDate.getTime(),':)');
         return newDate.getTime();
     }
 
-    
+
+    timeConversion=(myDate)=>{
+        myDate = myDate.split("-");
+        console.log(myDate, '>>>>>');
+        let newDate = new Date(myDate[0], myDate[1] - 1, myDate[2]);
+        console.log(newDate);
+        return this.toTimestamp(newDate);
+    }
+
+    toTimestamp = (strDate) => {
+        let datum = Date.parse(strDate);
+        console.log(datum);
+        return datum / 1000;
+    }
+
+
+
 
     onAdvanceSearchClick = (timeStampArr, pagesize, page) => {
+        let fromdate = this.timeConversion(timeStampArr[0]);        
+        let todate = this.timeConversion(timeStampArr[1]);
 
-
-        // let fromdate = this.convertToTimeStamp(timeStampArr[0]);
-
-        
-        // let todate = this.convertToTimeStamp(timeStampArr[1]);
-
-        console.log();
-
-        
-
-       
-        
-        axios.get(`https://api.stackexchange.com/2.2/tags?page=5&pagesize=30&fromdate=1609459200&todate=1612137600&order=desc&sort=popular&site=stackoverflow`).then(res => {
+        axios.get(`https://api.stackexchange.com/2.2/tags?page=${page}&pagesize=${pagesize}&fromdate=${fromdate}&todate=${todate}&order=desc&sort=popular&site=stackoverflow`).then(res => {
             const jsonObj = res.data
             let proessedData = [];
             jsonObj.items.map((item) => {
@@ -57,8 +63,6 @@ class Home extends Component {
             this.setState({ chartData: proessedData });
         })
     }
-
-
 
     render() {
         const { chartData } = this.state;

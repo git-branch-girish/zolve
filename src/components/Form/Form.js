@@ -13,7 +13,7 @@ class Form extends Component{
     }
 
     dateTimeStamp = (dateString) => {
-        console.log(dateString,'2222>>>>>>>>>>>>');
+        // console.log(dateString,'2222>>>>>>>>>>>>');
         this.setState({
             timeStamps:dateString
         })

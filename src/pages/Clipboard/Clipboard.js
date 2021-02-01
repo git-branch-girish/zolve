@@ -13,7 +13,7 @@ class Clipboard extends Component {
     }
 
     copyToClipboard = () => {
-        console.log(this.state.outTextArea, '>>>>>>>>>>')
+        // console.log(this.state.outTextArea, '>>>>>>>>>>')
         if (this.state.outTextArea){
             const el = this.textArea
             el.select()
