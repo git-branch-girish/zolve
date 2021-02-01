@@ -1,17 +1,13 @@
-import { Component} from 'react';
 import { NavLink } from 'react-router-dom';
 import SideMenu from "../SideMenu/SideMenu";
 import "./ToolBar.css";
 
-class Toolbar extends Component{
-
-    render(){
-        return(
-            <header className="toolbar">
+const Toolbar = (props) => {
+    return(<header className="toolbar">
                 <nav className="toolbar_navigator">
                     <div />
                     <div className="toggle-btn">
-                        <SideMenu click={this.props.drawerToggleClickHandler} />
+                        <SideMenu click={props.drawerToggleClickHandler} />
                     </div>
                     <div className="toolbar_logo">
                         <a href="/">Zolve</a>
@@ -35,9 +31,7 @@ class Toolbar extends Component{
                         </nav>
                     </div>
                 </nav>
-            </header>
-        )
-    }
+            </header>);
 }
 
 export default Toolbar;

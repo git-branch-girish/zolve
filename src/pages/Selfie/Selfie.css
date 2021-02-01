@@ -55,7 +55,9 @@
     color: #FFC107;
 }
 
-.capture-btn,.back-btn, .download-btn{
+.capture-btn,
+.back-btn,
+.download-btn{
     color: #2196F3;
 }
 

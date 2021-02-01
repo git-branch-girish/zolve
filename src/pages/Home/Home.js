@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import axios from "axios";
 import Chart from "react-google-charts";
 import Form from '../../components/Form/Form';
-import './Home.css'
 
 class Home extends Component {
 
@@ -23,14 +22,12 @@ class Home extends Component {
     }
 
     convertToTimeStamp = (timeStr) => {
-        
         timeStr = timeStr.split("-");
         timeStr.reverse();
         var newDate = new Date(timeStr[2], timeStr[1] - 1, timeStr[0]);
         console.log(newDate.getTime(),':)');
         return newDate.getTime();
     }
-
 
     timeConversion=(myDate)=>{
         myDate = myDate.split("-");
@@ -45,9 +42,6 @@ class Home extends Component {
         console.log(datum);
         return datum / 1000;
     }
-
-
-
 
     onAdvanceSearchClick = (timeStampArr, pagesize, page) => {
         let fromdate = this.timeConversion(timeStampArr[0]);        

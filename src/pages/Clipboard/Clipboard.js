@@ -14,15 +14,14 @@ class Clipboard extends Component {
 
     copyToClipboard = () => {
         // console.log(this.state.outTextArea, '>>>>>>>>>>')
-        if (this.state.outTextArea){
+        if (this.state.inputTextArea){
             const el = this.textArea
             el.select()
             document.execCommand("copy")
             this.setState({ copySuccess: true })
-        }else{
+        } else { 
             this.setState({ copySuccess: false });
         }   
-        
     }
 
     onInputTextAreaChange = (event) => {
@@ -35,7 +34,7 @@ class Clipboard extends Component {
 
     pasteFromClipBoard = () => {
         navigator.clipboard.readText().then(text => {
-            if (this.state.outputTextArea !== null) {
+            if (!this.state.copySuccess) {
                 return this.setState({ outputTextArea: text })
             }else{
                 return this.setState({ copySuccess: false })
@@ -81,25 +80,17 @@ class Clipboard extends Component {
 
     renderMessege = () => {
         if (this.state.copySuccess){
-
-            return(
-                    
-                    <div style={{ "color": "green", textAlign: "center" }}>
-                        Success!
-                    </div>        
-            )
+            return(<div style={{ "color": "green", textAlign: "center" }}>Success!</div>);
         }
     }
 
     render() {
-        
         return (
             <div className="clipboardWrapper">
 
                 {this.state.paramValue && this.renderToken()}
                 {this.state.copySuccess && this.renderMessege()}
-                
-            
+        
                 <div className="row">
                     <textarea
                         placeholder="Type here..."

@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
-
-import { faCamera, faChevronLeft, faDownload } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCamera, faChevronLeft, faDownload } from "@fortawesome/free-solid-svg-icons";
 import ImageCropperComponent from '../../components/ImageCropper/ImageCropperComponent';
-
 import './Selfie.css';
-
 import permissionDenied from '../../images/no-camera-allowed-hi.png'
 
 class Selfie extends Component {
@@ -132,11 +129,8 @@ class Selfie extends Component {
                 this.state.editImg && <ImageCropperComponent 
                                         imageSrc={this.state.imageURL} 
                                         defaultView={this.resetDefaultView}
-
                                     /> 
             }
-
-
         </div>)
     }
 }
