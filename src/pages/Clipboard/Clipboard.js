@@ -46,7 +46,7 @@ class Clipboard extends Component {
         let url_string = window && window.location && window.location.href;
         let url = new URL(url_string);
         let query = url.searchParams.get("q");
-        navigator.clipboard.writeText(query);
+        navigator && navigator.clipboard && navigator.clipboard.writeText(query);
         if (query){
             this.setState({
                 paramValue: query,
