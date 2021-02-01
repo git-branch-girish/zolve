@@ -22,9 +22,47 @@ class Home extends Component {
             })
     }
 
+    convertToTimeStamp = (timeStr) => {
+        
+        timeStr = timeStr.split("-");
+        timeStr.reverse();
+        var newDate = new Date(timeStr[2], timeStr[1] - 1, timeStr[0]);
+        console.log(newDate.getTime());
+        return newDate.getTime();
+    }
+
+    
+
+    onAdvanceSearchClick = (timeStampArr, pagesize, page) => {
+
+
+        // let fromdate = this.convertToTimeStamp(timeStampArr[0]);
+
+        
+        // let todate = this.convertToTimeStamp(timeStampArr[1]);
+
+        console.log();
+
+        
+
+       
+        
+        axios.get(`https://api.stackexchange.com/2.2/tags?page=5&pagesize=30&fromdate=1609459200&todate=1612137600&order=desc&sort=popular&site=stackoverflow`).then(res => {
+            const jsonObj = res.data
+            let proessedData = [];
+            jsonObj.items.map((item) => {
+                console.log(item, '>>>>')
+                proessedData.push([item.name, item.count])
+            });
+            this.setState({ chartData: proessedData });
+        })
+    }
+
+
+
     render() {
         const { chartData } = this.state;
-        if (chartData && chartData.items && chartData.items.length === 0) return <p>No enteries, sorry</p>;
+        if (chartData && chartData.items && chartData.items.length === 0) return <p>No enteries...</p>;
         return (
             <div className="chartWrapper">
                 <Chart
@@ -45,7 +83,7 @@ class Home extends Component {
                     // For tests
                     rootProps={{ 'data-testid': '2' }}
                 />
-                <Form />
+                <Form onSubmit={this.onAdvanceSearchClick} search={this.onAdvanceSearchClick}/>
             </div>
         );
     }

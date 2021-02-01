@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import './DatePicker.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Form, DatePicker,} from 'antd';
@@ -6,10 +6,12 @@ import "antd/dist/antd.css";
 
 class DatePickerUI extends Component {
 
-    // onChange = (date, dateString, abc) => {
-    //     console.log(date, dateString);
-    //     console.log(abc);
-    // }
+   
+
+    onRageDatePick = (date,dateString) => {
+        console.log(dateString, '>>>>>>>>>>>>>')
+        this.props.selectedDates(dateString);
+    }
 
     render() {
         const { RangePicker } = DatePicker;
@@ -24,8 +26,8 @@ class DatePickerUI extends Component {
             ],
         };
 
-        return <Form.Item name="range-picker" label="Date Picker" {...rangeConfig}>
-            <RangePicker />
+        return <Form.Item name="range-picker" label="Date Picker*:" {...rangeConfig}>
+            <RangePicker onChange={this.onRageDatePick}/>
         </Form.Item>;
 }
 
