@@ -70,10 +70,10 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 # zolve
 
-### 'Note to Remember:'
-Clipboard Assignment
-  1.Display the key value in a P/SPAN/DIV this not correct but implemented as per requirement.
-  2.Clipboard auto copy implemented in this Link:Ex: http://localhost:3000?clipboardq=girish
+### Remember:
+In Clipboard Assignment,
+  1.Displaying the key value in a P/SPAN/DIV this is Inncorrect but implemented as per requirement.
+  2.Clipboard auto copy feature implemented in this Link. Ex: http://localhost:3000?clipboardq=girish
  
  Thanks,
 
